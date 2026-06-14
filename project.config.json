@@ -92,7 +92,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "3.16.1",
-  "appid": "wx2e7861bfd789d365",
+  "appid": "your-appid",
   "projectname": "tcb-shop",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},

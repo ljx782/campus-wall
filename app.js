@@ -2,7 +2,7 @@ import updateManager from './common/updateManager';
 
 // 初始化云开发
 wx.cloud.init({
-  env: 'cloud1-d5go8oau1669dda05',
+  env: 'your-env-id',
   traceUser: true
 });
 

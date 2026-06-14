@@ -2,8 +2,8 @@
 
 ## 一、环境配置
 
-- **云环境 ID**: `cloud1-d5go8oau1669dda05`
-- **AppID**: `wx2e7861bfd789d365`
+- **云环境 ID**: `your-env-id`
+- **AppID**: `your-appid`
 
 ## 二、部署步骤
 
