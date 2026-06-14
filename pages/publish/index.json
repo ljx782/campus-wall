@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "发布信息",
+  "navigationBarBackgroundColor": "#FFC93C",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast"
+  }
+}

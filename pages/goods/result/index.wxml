@@ -1,0 +1,22 @@
+<view class="result-page">
+  <t-search t-class="t-search" t-class-input-container="t-class__input-container" t-class-input="t-search__input" value="{{keywords}}" leftIcon="" bind:submit="handleSubmit">
+    <t-icon slot="left-icon" prefix="wr" name="search" size="40rpx" color="#BDC3C7" />
+  </t-search>
+
+  <view wx:if="{{goodsList.length === 0 && keywords && !loading}}" class="empty-wrap">
+    <t-empty size="240rpx" description="暂无相关物品" />
+  </view>
+
+  <view wx:else class="goods-grid">
+    <view class="goods-item" wx:for="{{goodsList}}" wx:key="_id" data-id="{{item._id}}" bind:tap="gotoDetail">
+      <image class="goods-img" src="{{item.coverImage || '/images/demo1.png'}}" mode="aspectFill" lazy-load binderror="onImageError" data-index="{{index}}" />
+      <view class="goods-info">
+        <text class="goods-title ellipsis-2">{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading-tip">
+    <text>搜索中...</text>
+  </view>
+</view>

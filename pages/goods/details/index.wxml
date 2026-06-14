@@ -1,0 +1,80 @@
+<view class="detail-page">
+  <view wx:if="{{loading}}" class="loading-wrap">
+    <t-loading theme="circular" size="60rpx" text="加载中..." />
+  </view>
+
+  <block wx:if="{{item}}">
+    <view class="image-swiper" wx:if="{{item.images && item.images.length > 0}}">
+      <t-swiper height="750rpx" current="{{current}}" autoplay="{{false}}" duration="{{500}}" interval="{{5000}}" navigation="{{navigation}}" list="{{item.images}}" />
+    </view>
+
+    <view class="item-info card">
+      <view class="info-header">
+        <text class="item-title">{{item.title}}</text>
+      </view>
+      <view class="info-meta">
+        <text class="meta-item">{{item.publishTime}}</text>
+        <text class="meta-item">{{item.viewCount}} 次浏览</text>
+      </view>
+    </view>
+
+    <view class="publisher-card card">
+      <view class="publisher-header">
+        <text class="section-label">发布者信息</text>
+      </view>
+      <view class="publisher-info">
+        <image class="publisher-avatar" src="{{item.publisher.avatar || '/images/default-avatar.png'}}" mode="aspectFill" binderror="onAvatarError" />
+        <view class="publisher-detail">
+          <text class="publisher-name">{{item.publisher.nickname}}</text>
+          <text class="publisher-dorm">{{item.publisher.dorm}}</text>
+        </view>
+        <view class="contact-btn" bind:tap="toggleContact">
+          <text wx:if="{{!showContact}}">联系TA</text>
+          <text wx:else>收起</text>
+        </view>
+      </view>
+
+      <view wx:if="{{showContact}}" class="contact-info">
+        <view class="contact-item" bind:tap="copyWechat">
+          <text class="contact-icon">💬</text>
+          <view class="contact-text">
+            <text class="contact-label">微信号</text>
+            <text class="contact-value">{{item.publisher.wechat || '未填写'}}</text>
+          </view>
+          <text class="contact-action">复制</text>
+        </view>
+        <view class="contact-item" bind:tap="callPhone">
+          <text class="contact-icon">📞</text>
+          <view class="contact-text">
+            <text class="contact-label">手机号</text>
+            <text class="contact-value">{{item.publisher.phone || '未填写'}}</text>
+          </view>
+          <text class="contact-action">拨打</text>
+        </view>
+        <view class="contact-tip">
+          <text>💡 温馨提示：联系时请注意保护个人信息</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="desc-card card">
+      <view class="section-label">物品描述</view>
+      <text class="desc-text">{{item.desc}}</text>
+    </view>
+
+    <view class="bottom-bar">
+      <view class="bottom-bar-inner">
+        <view class="fav-btn" bind:tap="toggleFav">
+          <t-icon prefix="wr" name="{{isFaved ? 'star-filled' : 'star'}}" size="44rpx" color="{{isFaved ? '#FF6B6B' : '#BDC3C7'}}" />
+          <text class="fav-text">关注</text>
+        </view>
+        <view class="main-contact-btn" bind:tap="toggleContact">
+          <text wx:if="{{!showContact}}">📩 联系发布者</text>
+          <text wx:else>收起联系方式</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <t-toast id="t-toast" />
+</view>

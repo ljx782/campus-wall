@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "物品详情",
+  "navigationBarBackgroundColor": "#FFC93C",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "t-swiper": "tdesign-miniprogram/swiper/swiper",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-loading": "tdesign-miniprogram/loading/loading"
+  }
+}

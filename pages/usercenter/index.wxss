@@ -1,0 +1,40 @@
+/* 个人中心 - 手绘便利贴风格 */
+.user-page { background: #FFC93C; min-height: 100vh; padding-bottom: calc(env(safe-area-inset-bottom) + 120rpx); position: relative; }
+
+/* 头部 */
+.u-header { position: relative; padding: 40rpx 32rpx 32rpx; }
+.u-cloud { position: absolute; font-size: 44rpx; }
+.u-profile { display: flex; align-items: center; gap: 20rpx; position: relative; z-index: 1; }
+.u-avatar { width: 120rpx; height: 120rpx; border-radius: 50%; border: 4rpx solid #1A1A2E; background: #FFFFFF; }
+.u-info { display: flex; flex-direction: column; }
+.u-name { font-size: 40rpx; font-weight: 900; color: #1A1A2E; }
+.u-role { font-size: 24rpx; font-weight: 700; color: #E85D04; margin-top: 8rpx; background: #FFFFFF; padding: 4rpx 14rpx; border: 2rpx solid #1A1A2E; border-radius: 4rpx; display: inline-block; align-self: flex-start; }
+
+/* 统计 */
+.u-stats { display: flex; margin: 0 32rpx 24rpx; background: #FFFFFF; border: 3rpx solid #1A1A2E; border-radius: 4rpx; box-shadow: 3rpx 3rpx 0 #1A1A2E; }
+.us-item { flex: 1; text-align: center; padding: 24rpx 0; }
+.us-item + .us-item { border-left: 2rpx dashed #1A1A2E; }
+.us-num { font-size: 40rpx; font-weight: 900; color: #E85D04; display: block; }
+.us-label { font-size: 24rpx; font-weight: 700; color: #4A4A5A; margin-top: 6rpx; display: block; }
+
+/* 菜单 */
+.u-menu { margin: 0 32rpx; background: #FFFFFF; border: 3rpx solid #1A1A2E; border-radius: 4rpx; box-shadow: 3rpx 3rpx 0 #1A1A2E; overflow: hidden; }
+.um-item { display: flex; align-items: center; padding: 28rpx 24rpx; }
+.um-item + .um-item { border-top: 2rpx dashed #1A1A2E; }
+.um-icon { font-size: 32rpx; margin-right: 16rpx; }
+.um-text { flex: 1; font-size: 28rpx; font-weight: 700; color: #1A1A2E; }
+.um-ver { font-size: 24rpx; color: #888899; font-weight: 600; margin-right: 12rpx; }
+.um-arrow { font-size: 28rpx; color: #888899; font-weight: 700; }
+
+.red-dot { width: 16rpx; height: 16rpx; background: #FF3B30; border-radius: 50%; margin-right: 8rpx; flex-shrink: 0; }
+
+/* 退出 */
+.u-logout { display: flex; justify-content: center; margin-top: 40rpx; }
+.ul-btn { width: 280rpx; height: 76rpx; background: #FFFFFF; color: #E85D04; font-size: 26rpx; font-weight: 800; border-radius: 4rpx; display: flex; align-items: center; justify-content: center; border: 3rpx solid #1A1A2E; box-shadow: 3rpx 3rpx 0 #1A1A2E; }
+.ul-btn::after { border: none; }
+.ul-btn:active { box-shadow: 1rpx 1rpx 0 #1A1A2E; transform: translate(2rpx, 2rpx); }
+
+/* 底部装饰 */
+.u-bottom { position: relative; height: 80rpx; margin-top: 40rpx; }
+.u-hill { position: absolute; bottom: 0; left: -20rpx; right: -20rpx; height: 60rpx; background: #1B998B; border-radius: 50% 50% 0 0; }
+.u-plant { position: absolute; bottom: 20rpx; font-size: 40rpx; z-index: 1; }

@@ -1,0 +1,44 @@
+<view class="login-page">
+  <view class="l-content">
+    <text class="l-cloud" style="top:60rpx;left:40rpx;">☁️</text>
+    <text class="l-cloud" style="top:100rpx;right:50rpx;font-size:48rpx;">☁️</text>
+
+    <view class="l-logo">
+      <!-- 头像选择 -->
+      <button class="l-avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image class="l-avatar" src="{{avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill" binderror="onAvatarError" />
+        <view class="l-avatar-tip" wx:if="{{!avatarUrl}}">点击同步微信头像</view>
+      </button>
+
+      <!-- 昵称输入 -->
+      <input
+        class="l-nickname"
+        type="nickname"
+        placeholder="点击填写昵称"
+        value="{{nickName}}"
+        bind:input="onNickNameInput"
+      />
+
+      <text class="l-sub">一块属于你的校园告示板</text>
+    </view>
+
+    <view class="l-action">
+      <button
+        class="l-btn {{loading || !avatarUrl ? 'disabled' : ''}}"
+        bindtap="handleLogin"
+        disabled="{{loading || !avatarUrl}}"
+      >
+        <text wx:if="{{!loading}}">进入广场</text>
+        <text wx:else>登录中...</text>
+      </button>
+      <view class="l-skip" bindtap="skipLogin"><text>先逛逛 ›</text></view>
+    </view>
+  </view>
+
+  <view class="l-bottom">
+    <view class="l-hill"></view>
+    <text class="l-plant" style="left:15%;">🌿</text>
+    <text class="l-plant" style="left:45%;">🌱</text>
+    <text class="l-plant" style="left:75%;">🍀</text>
+  </view>
+</view>

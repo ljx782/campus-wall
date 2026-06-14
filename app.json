@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/wall/index",
+    "pages/publish/index",
+    "pages/search/index",
+    "pages/usercenter/index",
+    "pages/login/index",
+    "pages/detail/index",
+    "pages/admin/home/index",
+    "pages/goods/list/index",
+    "pages/goods/details/index",
+    "pages/goods/search/index",
+    "pages/goods/result/index",
+    "pages/usercenter/person-info/index",
+    "pages/usercenter/name-edit/index",
+    "pages/usercenter/favorites/index"
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#666666",
+    "selectedColor": "#E85D04",
+    "backgroundColor": "#FFC93C",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/wall/index", "text": "广场" },
+      { "pagePath": "pages/publish/index", "text": "发布" },
+      { "pagePath": "pages/search/index", "text": "搜索" },
+      { "pagePath": "pages/usercenter/index", "text": "我的" }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFC93C",
+    "navigationBarTitleText": "校园信息展示墙",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于展示你附近的校园信息"
+    }
+  },
+  "cloud": true
+}

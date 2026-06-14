@@ -1,0 +1,65 @@
+/* 详情页 — 苹果风格 */
+.detail-page { padding-bottom: calc(env(safe-area-inset-bottom) + 150rpx); background: #F5F5F7; min-height: 100vh; }
+.loading-wrap { display: flex; justify-content: center; align-items: center; height: 60vh; }
+.image-swiper { --td-swiper-radius: 0; }
+
+.card {
+  background: #FFFFFF; border-radius: 18rpx;
+  margin: 24rpx 24rpx; padding: 36rpx 32rpx;
+  box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.04);
+}
+.section-label { font-size: 32rpx; font-weight: 700; color: #1D1D1F; margin-bottom: 24rpx; display: block; }
+
+/* 价格 */
+.price-row { display: flex; align-items: baseline; margin-bottom: 20rpx; }
+.price-symbol { font-size: 30rpx; color: #1D1D1F; font-weight: 700; }
+.price-value { font-size: 60rpx; color: #1D1D1F; font-weight: 800; letter-spacing: -2rpx; }
+.condition-tag {
+  margin-left: 20rpx; font-size: 24rpx; color: #0071E3;
+  background: #F0F7FF; padding: 6rpx 16rpx; border-radius: 12rpx; font-weight: 500;
+}
+.item-title { font-size: 38rpx; font-weight: 700; color: #1D1D1F; line-height: 52rpx; display: block; }
+.info-meta { display: flex; flex-wrap: wrap; margin-top: 24rpx; padding-top: 24rpx; border-top: 1rpx solid #F2F2F7; }
+.meta-item { font-size: 26rpx; color: #AEAEB2; margin-right: 36rpx; }
+
+/* 卖家 */
+.publisher-info { display: flex; align-items: center; }
+.publisher-avatar { width: 88rpx; height: 88rpx; border-radius: 50%; background: #F2F2F7; }
+.publisher-detail { flex: 1; margin-left: 24rpx; }
+.publisher-name { font-size: 32rpx; font-weight: 600; color: #1D1D1F; display: block; }
+.publisher-dorm { font-size: 26rpx; color: #AEAEB2; margin-top: 8rpx; display: block; }
+.contact-btn {
+  background: #0071E3; color: #FFFFFF; font-size: 28rpx; font-weight: 600;
+  padding: 16rpx 32rpx; border-radius: 28rpx;
+}
+
+/* 联系方式 */
+.contact-info { margin-top: 28rpx; padding-top: 28rpx; border-top: 1rpx solid #F2F2F7; }
+.contact-item { display: flex; align-items: center; padding: 22rpx 0; }
+.contact-item+.contact-item { border-top: 1rpx solid #F2F2F7; }
+.contact-icon { font-size: 34rpx; margin-right: 20rpx; }
+.contact-text { flex: 1; }
+.contact-label { font-size: 24rpx; color: #AEAEB2; display: block; }
+.contact-value { font-size: 32rpx; color: #1D1D1F; font-weight: 600; display: block; margin-top: 6rpx; }
+.contact-action { font-size: 26rpx; color: #0071E3; padding: 10rpx 24rpx; background: #F0F7FF; border-radius: 14rpx; font-weight: 500; }
+.contact-tip { margin-top: 24rpx; padding: 20rpx 24rpx; background: #FFF9F0; border-radius: 14rpx; font-size: 24rpx; color: #B08800; line-height: 38rpx; }
+
+/* 描述 */
+.desc-text { font-size: 30rpx; color: #1D1D1F; line-height: 50rpx; white-space: pre-wrap; word-break: break-all; }
+
+/* 底部 */
+.bottom-bar {
+  position: fixed; left: 0; bottom: 0; width: 100%;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1rpx solid #E5E5EA;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.bottom-bar-inner { display: flex; align-items: center; padding: 18rpx 32rpx; }
+.fav-btn { display: flex; flex-direction: column; align-items: center; margin-right: 28rpx; }
+.fav-text { font-size: 22rpx; color: #86868B; margin-top: 6rpx; }
+.main-contact-btn {
+  flex: 1; background: #0071E3; color: #FFFFFF; text-align: center;
+  font-size: 34rpx; font-weight: 700; padding: 26rpx 0; border-radius: 28rpx;
+  letter-spacing: 1rpx;
+}

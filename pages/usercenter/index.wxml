@@ -1,0 +1,70 @@
+<view class="user-page">
+  <!-- 头部 -->
+  <view class="u-header">
+    <text class="u-cloud" style="top:30rpx;left:40rpx;">☁️</text>
+    <text class="u-cloud" style="top:50rpx;right:50rpx;font-size:38rpx;">☁️</text>
+    <view class="u-profile">
+      <image class="u-avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill" binderror="onAvatarError" />
+      <view class="u-info" bind:tap="login">
+        <text class="u-name">{{userInfo.nickName || '点击登录'}}</text>
+        <text class="u-role">{{isAdmin ? '管理员' : '校园同学'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 统计 -->
+  <view class="u-stats">
+    <view class="us-item" bind:tap="navToMyItems">
+      <text class="us-num">{{myItemCount}}</text>
+      <text class="us-label">我发布的</text>
+    </view>
+    <view class="us-item">
+      <text class="us-num">{{likedCount}}</text>
+      <text class="us-label">我点赞的</text>
+    </view>
+  </view>
+
+  <!-- 菜单 -->
+  <view class="u-menu">
+    <view class="um-item" bind:tap="navToEditProfile">
+      <text class="um-icon">👤</text>
+      <text class="um-text">编辑资料</text>
+      <text class="um-arrow">›</text>
+    </view>
+    <view class="um-item" bind:tap="navToMyItems">
+      <text class="um-icon">📦</text>
+      <text class="um-text">{{isAdmin ? '管理后台' : '我的发布'}}</text>
+      <view wx:if="{{isAdmin && hasPendingReview}}" class="red-dot"></view>
+      <text class="um-arrow">›</text>
+    </view>
+    <view class="um-item" bind:tap="navToFavs">
+      <text class="um-icon">⭐</text>
+      <text class="um-text">我的收藏</text>
+      <text class="um-arrow">›</text>
+    </view>
+    <view class="um-item" bind:tap="clearCache">
+      <text class="um-icon">🗑️</text>
+      <text class="um-text">清除缓存</text>
+      <text class="um-arrow">›</text>
+    </view>
+    <view class="um-item" bind:tap="showAbout">
+      <text class="um-icon">ℹ️</text>
+      <text class="um-text">关于</text>
+      <text class="um-ver">v3.0</text>
+      <text class="um-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="u-logout" wx:if="{{userInfo.nickName}}">
+    <button class="ul-btn" bindtap="logout">退出登录</button>
+  </view>
+
+  <!-- 底部装饰 -->
+  <view class="u-bottom">
+    <view class="u-hill"></view>
+    <text class="u-plant" style="left:20%;">🌿</text>
+    <text class="u-plant" style="left:60%;">🌱</text>
+  </view>
+
+  <t-toast id="t-toast" />
+</view>

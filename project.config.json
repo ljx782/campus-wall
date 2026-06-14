@@ -1,0 +1,195 @@
+{
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "packOptions": {
+    "ignore": [
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/action-sheet" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/avatar-group" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/back-top" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/calendar" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/cascader" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/check-tag" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/checkbox-group" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/col" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/collapse" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/collapse-panel" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/date-time-picker" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/drawer" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/dropdown-item" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/dropdown-menu" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/fab" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/footer" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/guide" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/image-viewer" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/indexes" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/indexes-anchor" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/link" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/message" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/message-item" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/notice-bar" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/picker" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/picker-item" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/progress" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/radio" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/radio-group" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/result" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/row" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/side-bar" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/side-bar-item" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/skeleton" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/slider" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/switch" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/tree-select" },
+      { "type": "folder", "value": "miniprogram_npm/tdesign-miniprogram/miniprogram_npm/dayjs" },
+      { "type": "file", "value": "miniprogram_npm/@cloudbase/wx-cloud-client-sdk/index.js.map" }
+    ],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "ignoreDevUnusedFiles": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true,
+    "useStaticServer": true,
+    "compileWorklet": false,
+    "localPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.16.1",
+  "appid": "wx2e7861bfd789d365",
+  "projectname": "tcb-shop",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "首页入口",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-商品分类",
+          "pathName": "pages/goods/category/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-个人中心",
+          "pathName": "pages/usercenter/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-商品列表",
+          "pathName": "pages/goods/list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-商品详情",
+          "pathName": "pages/goods/details/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-商品评论",
+          "pathName": "pages/goods/comments/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-售后列表",
+          "pathName": "pages/order/after-service-list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-售后详情",
+          "pathName": "pages/order/after-service-detail/index",
+          "query": "rightsNo=123123423",
+          "scene": null
+        },
+        {
+          "name": "示例页-搜索页",
+          "pathName": "pages/goods/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-搜索结果",
+          "pathName": "pages/goods/result/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-商品评价",
+          "pathName": "pages/goods/comments/create/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-选择商品评价",
+          "pathName": "pages/goods/comments/create-list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "示例页-申请售后",
+          "pathName": "pages/order/apply-service/index",
+          "query": "orderNo=132222623132329291&skuId=135691625",
+          "scene": null
+        },
+        {
+          "name": "示例页-发票详情",
+          "pathName": "pages/order/invoice/index",
+          "query": "orderNo=132381532610540875",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "cloudfunctionRoot": "cloudfunctions/"
+}

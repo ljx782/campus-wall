@@ -1,0 +1,41 @@
+<view class="admin-page">
+  <!-- 顶部标题栏 -->
+  <view class="admin-header">
+    <text class="header-title">🛠️ 管理后台</text>
+    <text class="header-sub">内容管理</text>
+  </view>
+  <!-- ====== 校园墙审核 ====== -->
+  <view class="section-title">💬 校园墙审核</view>
+
+  <view class="wall-pending-list">
+    <block wx:for="{{wallPendingList}}" wx:key="_id">
+      <view class="wall-item">
+        <view class="wall-item-top">
+          <view class="wall-type-tag tag-{{item.type}}">
+            {{item.type === 'confession' ? '💌 表白墙' : item.type === 'study' ? '📚 学习经验' : '🔍 失物招领'}}
+          </view>
+          <text class="wall-time">{{item.publishTime}}</text>
+        </view>
+        <text class="wall-title">{{item.title}}</text>
+        <text class="wall-content" wx:if="{{item.content}}">{{item.content}}</text>
+        <view class="wall-publisher" wx:if="{{item.publisher}}">
+          <text>发布者：{{item.publisher.nickname || '同学'}}</text>
+          <text wx:if="{{item.publisher.wechat}}">｜微信：{{item.publisher.wechat}}</text>
+        </view>
+        <view class="wall-actions">
+          <view class="action-btn approve" data-id="{{item._id}}" catchtap="approveWallPost">✅ 通过</view>
+          <view class="action-btn delete" data-id="{{item._id}}" catchtap="rejectWallPost">❌ 拒绝</view>
+        </view>
+      </view>
+    </block>
+
+    <view wx:if="{{wallPendingList.length === 0 && !wallLoading}}" class="empty-state">
+      <text class="empty-icon">✅</text>
+      <text class="empty-text">暂无待审核的校园墙内容</text>
+    </view>
+
+    <view wx:if="{{wallLoading}}" class="loading-more">
+      <t-loading theme="circular" size="40rpx" text="加载中..." />
+    </view>
+  </view>
+</view>

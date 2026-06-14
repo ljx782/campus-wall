@@ -1,0 +1,13 @@
+/* 搜索结果 — 苹果风格 */
+.result-page { background: #F5F5F7; min-height: 100vh; }
+.goods-grid { display: flex; flex-wrap: wrap; padding: 24rpx; gap: 20rpx; }
+.goods-item { width: calc(50% - 10rpx); background: #FFFFFF; border-radius: 18rpx; overflow: hidden; box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.05); }
+.goods-img { width: 100%; height: 340rpx; border-radius: 18rpx 18rpx 0 0; }
+.goods-info { padding: 20rpx 24rpx 24rpx; }
+.goods-title { font-size: 30rpx; color: #1D1D1F; line-height: 42rpx; font-weight: 600; }
+.goods-bottom { display: flex; justify-content: space-between; align-items: baseline; margin-top: 16rpx; }
+.goods-price { display: flex; align-items: baseline; }
+.price-symbol { font-size: 24rpx; color: #1D1D1F; font-weight: 700; }
+.price-value { font-size: 38rpx; color: #1D1D1F; font-weight: 800; letter-spacing: -1rpx; }
+.condition-tag { font-size: 22rpx; color: #0071E3; background: #F0F7FF; padding: 6rpx 14rpx; border-radius: 10rpx; }
+.empty-wrap { padding-top: 200rpx; }

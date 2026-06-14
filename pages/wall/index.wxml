@@ -1,0 +1,97 @@
+<view class="wall-page">
+  <!-- 手绘装饰 -->
+  <view class="deco-top">
+    <text class="cloud" style="top:20rpx;left:30rpx;">☁️</text>
+    <text class="cloud" style="top:40rpx;right:40rpx;font-size:36rpx;">☁️</text>
+  </view>
+
+  <!-- 标题 -->
+  <view class="wall-header">
+    <text class="wall-title">校园广场</text>
+    <view class="title-line"></view>
+    <text class="wall-sub">一块发现校园生活碎片的告示板</text>
+  </view>
+
+  <!-- 搜索 -->
+  <view class="search-box" bind:tap="goSearch">
+    <text class="search-icon">🔍</text>
+    <text class="search-text">搜索内容...</text>
+  </view>
+
+  <!-- 便利贴列表 -->
+  <view class="note-list">
+    <block wx:for="{{feedList}}" wx:key="_id" wx:for-index="itemIndex">
+      <view
+        class="note note-{{item.moduleType}}"
+        data-id="{{item._id}}"
+        data-module="{{item.moduleType}}"
+        bind:tap="navToDetail"
+      >
+        <!-- 胶带装饰 -->
+        <view class="tape tape-{{item.moduleType}}"></view>
+
+        <view class="note-inner">
+          <!-- 头部 -->
+          <view class="note-top">
+            <text class="note-tag tag-{{item.moduleType}}">{{item.tagName}}</text>
+            <text class="note-time">{{item.timeAgo}}</text>
+          </view>
+
+          <!-- 内容 -->
+          <view class="note-body">
+            <text class="note-title">{{item.title}}</text>
+            <text class="note-desc" wx:if="{{item.desc}}">{{item.desc}}</text>
+
+            <view class="note-status" wx:if="{{item.moduleType === 'lostfound'}}">
+              <text class="st {{item.lostStatus || 'lost'}}">
+                {{(item.lostStatus || 'lost') === 'lost' ? '寻物中' : '招领中'}}
+              </text>
+              <text class="st-loc" wx:if="{{item.location}}">@{{item.location}}</text>
+            </view>
+          </view>
+
+          <!-- 图片 -->
+          <view class="note-imgs" wx:if="{{item.images && item.images.length > 0}}">
+            <image wx:for="{{item.images}}" wx:for-item="img" wx:for-index="imgIndex" wx:key="*this" class="n-img {{item.images.length === 1 ? 'n-img-big' : ''}}" src="{{img}}" mode="aspectFill" lazy-load binderror="onImageError" data-item-index="{{itemIndex}}" data-img-index="{{imgIndex}}" />
+          </view>
+
+          <!-- 底部 -->
+          <view class="note-footer">
+            <view class="note-user">
+              <image class="nu-avatar" src="{{item.publisher.avatar || '/images/default-avatar.png'}}" mode="aspectFill" binderror="onAvatarError" data-item-index="{{itemIndex}}" />
+              <text class="nu-name">{{item.publisher.nickname || '同学'}}</text>
+            </view>
+            <view class="note-stats">
+              <text>👁 {{item.viewCount || 0}}</text>
+              <text>❤️ {{item.likeCount || 0}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view wx:if="{{feedList.length === 0 && !loading}}" class="empty">
+      <text class="empty-big">📌</text>
+      <text class="empty-txt">公告栏空空如也</text>
+      <text class="empty-sub">贴一张属于你自己的便利贴吧</text>
+    </view>
+    <view wx:if="{{loading}}" class="loading">正在贴便利贴...</view>
+    <view wx:if="{{!hasMore && feedList.length > 0}}" class="loading">— 贴满啦 —</view>
+  </view>
+
+  <!-- 底部装饰 -->
+  <view class="deco-bottom">
+    <view class="hill"></view>
+    <text class="plant" style="left:10%;">🌿</text>
+    <text class="plant" style="left:40%;">🌱</text>
+    <text class="plant" style="left:70%;">🍀</text>
+    <text class="plant" style="left:85%;">🌵</text>
+  </view>
+
+  <!-- 悬浮发布 -->
+  <view class="fab" bind:tap="goPublish">
+    <text>＋</text>
+  </view>
+
+  <t-toast id="t-toast" />
+</view>

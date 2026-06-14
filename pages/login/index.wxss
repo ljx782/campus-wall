@@ -1,0 +1,73 @@
+/* 登录页 - 手绘便利贴风格 */
+.login-page { min-height: 100vh; background: #FFC93C; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+
+.l-content { position: relative; z-index: 1; width: 100%; padding: 60rpx; box-sizing: border-box; }
+.l-cloud { position: absolute; font-size: 52rpx; }
+
+.l-logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 80rpx; }
+
+/* 头像选择 */
+.l-avatar-btn {
+  width: 180rpx;
+  height: 180rpx;
+  padding: 0;
+  margin: 0 0 24rpx 0;
+  background: transparent;
+  border: none;
+  position: relative;
+}
+.l-avatar-btn::after { border: none; }
+.l-avatar {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  border: 4rpx solid #1A1A2E;
+  background: #FFFFFF;
+  box-shadow: 4rpx 4rpx 0 #1A1A2E;
+}
+.l-avatar-tip {
+  position: absolute;
+  bottom: -10rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20rpx;
+  color: #E85D04;
+  background: #FFFFFF;
+  border: 2rpx solid #1A1A2E;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* 昵称输入 */
+.l-nickname {
+  width: 320rpx;
+  height: 64rpx;
+  background: #FFFFFF;
+  border: 3rpx solid #1A1A2E;
+  border-radius: 4rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #1A1A2E;
+  margin-bottom: 16rpx;
+  box-shadow: 3rpx 3rpx 0 #1A1A2E;
+}
+.l-nickname::placeholder { color: #888899; font-weight: 600; }
+
+.l-name { font-size: 48rpx; font-weight: 900; color: #1A1A2E; letter-spacing: 2rpx; margin-bottom: 14rpx; }
+.l-sub { font-size: 26rpx; color: #4A4A5A; font-weight: 600; }
+
+.l-action { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.l-btn { width: 100%; max-width: 520rpx; height: 90rpx; background: #1A1A2E; color: #FFFFFF; font-size: 30rpx; font-weight: 800; border-radius: 4rpx; display: flex; align-items: center; justify-content: center; border: none; box-shadow: 4rpx 4rpx 0 rgba(0,0,0,0.2); }
+.l-btn.disabled { opacity: 0.5; }
+.l-btn.loading { opacity: 0.85; }
+.l-btn::after { border: none; }
+.l-btn:active:not(.disabled) { box-shadow: 2rpx 2rpx 0 rgba(0,0,0,0.2); transform: translate(2rpx, 2rpx); }
+.l-skip { margin-top: 30rpx; padding: 20rpx; }
+.l-skip text { font-size: 26rpx; color: #4A4A5A; font-weight: 600; }
+
+.l-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 100rpx; }
+.l-hill { position: absolute; bottom: 0; left: -40rpx; right: -40rpx; height: 80rpx; background: #1B998B; border-radius: 50% 50% 0 0; }
+.l-plant { position: absolute; bottom: 30rpx; font-size: 44rpx; z-index: 1; }

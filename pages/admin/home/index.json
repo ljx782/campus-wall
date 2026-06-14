@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "t-loading": "tdesign-miniprogram/loading/loading"
+  },
+  "navigationBarTitleText": "管理后台"
+}

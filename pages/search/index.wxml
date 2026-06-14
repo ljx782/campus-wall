@@ -1,0 +1,46 @@
+<view class="search-page">
+  <!-- 搜索栏 -->
+  <view class="s-header">
+    <view class="s-input-wrap">
+      <text class="s-icon">🔍</text>
+      <input class="s-input" placeholder="搜索..." value="{{keyword}}" confirm-type="search" bindinput="onInput" bindconfirm="doSearch" focus="{{true}}" />
+      <view class="s-clear" wx:if="{{keyword}}" bind:tap="clearKeyword">✕</view>
+    </view>
+    <view class="s-btn" bind:tap="doSearch">搜索</view>
+  </view>
+
+  <!-- 结果 -->
+  <view class="s-result">
+    <block wx:for="{{resultList}}" wx:key="_id">
+      <view class="sr-note note-{{item.moduleType}}" data-id="{{item._id}}" data-module="{{item.moduleType}}" bind:tap="navToDetail">
+        <view class="sr-tape tape-{{item.moduleType}}"></view>
+        <view class="sr-inner">
+          <view class="sr-top">
+            <text class="sr-tag">{{item.tagName}}</text>
+            <text class="sr-time">{{item.timeAgo}}</text>
+          </view>
+          <text class="sr-title">{{item.title}}</text>
+          <text class="sr-desc" wx:if="{{item.desc}}">{{item.desc}}</text>
+
+        </view>
+      </view>
+    </block>
+
+    <view wx:if="{{resultList.length === 0 && !loading && hasSearched}}" class="s-empty">
+      <text class="se-big">📭</text>
+      <text class="se-txt">没有找到</text>
+      <text class="se-sub">换个词试试</text>
+    </view>
+    <view wx:if="{{loading}}" class="s-loading">搜索中...</view>
+  </view>
+
+  <!-- 热门 -->
+  <view class="s-hot" wx:if="{{!hasSearched}}">
+    <text class="sh-title">🔥 大家在搜</text>
+    <view class="sh-tags">
+      <view class="sh-tag" wx:for="{{hotKeywords}}" wx:key="*this" bind:tap="tapHot" data-keyword="{{item}}">{{item}}</view>
+    </view>
+  </view>
+
+  <t-toast id="t-toast" />
+</view>

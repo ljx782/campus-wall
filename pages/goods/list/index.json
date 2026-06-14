@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "浏览物品",
+  "navigationBarBackgroundColor": "#FFC93C",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast"
+  }
+}

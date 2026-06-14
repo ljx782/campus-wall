@@ -1,0 +1,9 @@
+{
+  "name": "publishProduct",
+  "version": "1.0.0",
+  "description": "内容发布/编辑/删除",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "编辑资料",
+  "navigationBarBackgroundColor": "#FFC93C",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "t-toast": "tdesign-miniprogram/toast/toast"
+  }
+}

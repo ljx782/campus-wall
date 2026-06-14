@@ -1,0 +1,36 @@
+<view class="person-page">
+  <view class="p-header">
+    <text class="p-title">编辑资料</text>
+    <view class="p-line"></view>
+  </view>
+
+  <!-- 头像 -->
+  <view class="p-section">
+    <text class="p-label">头像</text>
+    <button class="p-avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image class="p-avatar" src="{{personInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill" binderror="onAvatarError" />
+      <text class="p-tip">点击换头像</text>
+    </button>
+  </view>
+
+  <!-- 昵称 -->
+  <view class="p-section">
+    <text class="p-label">昵称</text>
+    <input class="p-input" type="nickname" placeholder="填写昵称" value="{{personInfo.nickName}}" bindinput="onNameInput" />
+  </view>
+
+  <!-- 性别 -->
+  <view class="p-section">
+    <text class="p-label">性别</text>
+    <view class="p-opts">
+      <view class="p-opt {{personInfo.gender === 1 ? 'on' : ''}}" bind:tap="setGender" data-g="1">男</view>
+      <view class="p-opt {{personInfo.gender === 2 ? 'on' : ''}}" bind:tap="setGender" data-g="2">女</view>
+      <view class="p-opt {{personInfo.gender === 0 ? 'on' : ''}}" bind:tap="setGender" data-g="0">保密</view>
+    </view>
+  </view>
+
+  <!-- 保存 -->
+  <button class="p-save" bind:tap="save">保存</button>
+
+  <t-toast id="t-toast" />
+</view>

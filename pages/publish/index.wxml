@@ -1,0 +1,106 @@
+<view class="publish-page">
+  <!-- 顶部标题区 -->
+  <view class="pub-header">
+    <text class="cloud-deco" style="top:20rpx;left:30rpx;">☁️</text>
+    <text class="cloud-deco" style="top:30rpx;right:40rpx;font-size:36rpx;">☁️</text>
+    <view class="pub-title-box">
+      <text class="pub-title">写一张便利贴</text>
+      <view class="pub-line"></view>
+    </view>
+  </view>
+
+  <!-- 类型选择 -->
+  <view class="type-box">
+    <text class="box-label">选一种颜色</text>
+    <view class="type-row">
+      <view class="type-item type-confession {{publishType === 'confession' ? 'selected' : ''}}" data-type="confession" bind:tap="switchType">
+        <view class="color-block cb-pink"></view>
+        <text>表白墙</text>
+      </view>
+      <view class="type-item type-secondhand {{publishType === 'secondhand' ? 'selected' : ''}}" data-type="secondhand" bind:tap="switchType">
+        <view class="color-block cb-orange"></view>
+        <text>好物推荐</text>
+      </view>
+      <view class="type-item type-study {{publishType === 'study' ? 'selected' : ''}}" data-type="study" bind:tap="switchType">
+        <view class="color-block cb-blue"></view>
+        <text>学习经验</text>
+      </view>
+      <view class="type-item type-lostfound {{publishType === 'lostfound' ? 'selected' : ''}}" data-type="lostfound" bind:tap="switchType">
+        <view class="color-block cb-green"></view>
+        <text>失物招领</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 表单 -->
+  <view class="form-area note-{{publishType}}">
+    <view class="form-tape tape-{{publishType}}"></view>
+
+    <!-- 图片 -->
+    <view class="fg">
+      <text class="fl">贴图 <text class="fh">（最多6张）</text></text>
+      <view class="img-row">
+        <block wx:for="{{images}}" wx:key="index">
+          <view class="img-item">
+            <image src="{{item}}" mode="aspectFill" binderror="onImageError" data-index="{{index}}" />
+            <view class="img-del" data-index="{{index}}" bind:tap="removeImage">✕</view>
+          </view>
+        </block>
+        <view wx:if="{{images.length < 6}}" class="img-add" bind:tap="chooseImage">
+          <text class="ia-icon">＋</text>
+          <text class="ia-txt">{{images.length}}/6</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 表白墙 -->
+    <block wx:if="{{publishType === 'confession'}}">
+      <view class="fg"><text class="fl">To</text><input class="fi" placeholder="例如：图书馆三楼穿白T恤的同学" value="{{toName}}" bindinput="onToNameInput" maxlength="40" /></view>
+      <view class="fg"><text class="fl">内容 <text class="fr">*</text></text><textarea class="ft" placeholder="写下你想说的话..." value="{{content}}" bindinput="onContentInput" maxlength="500" auto-height /></view>
+      <view class="fg"><text class="fl">From <text class="fh">（选填，留空匿名）</text></text><input class="fi" placeholder="例如：暗恋你的隔壁班同学" value="{{fromName}}" bindinput="onFromNameInput" maxlength="40" /></view>
+    </block>
+
+    <!-- 好物推荐 -->
+    <block wx:if="{{publishType === 'secondhand'}}">
+      <view class="fg"><text class="fl">标题 <text class="fr">*</text></text><input class="fi" placeholder="分享一下你喜欢的好物" value="{{title}}" bindinput="onTitleInput" maxlength="60" /></view>
+      <view class="fg"><text class="fl">推荐理由</text><textarea class="ft" placeholder="为什么推荐它？使用感受、优点等..." value="{{desc}}" bindinput="onDescInput" maxlength="500" auto-height /></view>
+    </block>
+
+    <!-- 学习经验 -->
+    <block wx:if="{{publishType === 'study'}}">
+      <view class="fg"><text class="fl">标题 <text class="fr">*</text></text><input class="fi" placeholder="例如：考研数学复习三个月130+经验" value="{{title}}" bindinput="onTitleInput" maxlength="60" /></view>
+      <view class="fg"><text class="fl">内容 <text class="fr">*</text></text><textarea class="ft" placeholder="分享你的学习方法、备考经验..." value="{{content}}" bindinput="onContentInput" maxlength="2000" auto-height /></view>
+    </block>
+
+    <!-- 失物招领 -->
+    <block wx:if="{{publishType === 'lostfound'}}">
+      <view class="fg"><text class="fl">类型 <text class="fr">*</text></text>
+        <view class="opt-row">
+          <view class="opt {{lostStatus === 'lost' ? 'on' : ''}}" data-value="lost" bind:tap="onLostStatusTap">📢 寻物</view>
+          <view class="opt {{lostStatus === 'found' ? 'on' : ''}}" data-value="found" bind:tap="onLostStatusTap">🙋 招领</view>
+        </view>
+      </view>
+      <view class="fg"><text class="fl">标题 <text class="fr">*</text></text><input class="fi" placeholder="例如：在食堂丢失一把黑色雨伞" value="{{title}}" bindinput="onTitleInput" maxlength="60" /></view>
+      <view class="fg"><text class="fl">物品名称</text><input class="fi" placeholder="例如：黑色雨伞" value="{{itemName}}" bindinput="onItemNameInput" maxlength="40" /></view>
+      <view class="fg"><text class="fl">地点</text><input class="fi" placeholder="例如：第二食堂一楼" value="{{location}}" bindinput="onLocationInput" maxlength="60" /></view>
+      <view class="fg"><text class="fl">时间</text><input class="fi" placeholder="例如：6月10日中午12点左右" value="{{lostTime}}" bindinput="onLostTimeInput" maxlength="40" /></view>
+      <view class="fg"><text class="fl">详细描述</text><textarea class="ft" placeholder="描述物品特征、经过等..." value="{{content}}" bindinput="onContentInput" maxlength="500" auto-height /></view>
+    </block>
+
+    <!-- 通用联系方式 -->
+    <view class="fg"><text class="fl">联系方式 <text class="fr">*</text></text><input class="fi" placeholder="微信号或手机号" value="{{contact}}" bindinput="onContactInput" maxlength="30" /></view>
+
+    <button class="pub-btn" bind:tap="submit">{{isAdmin ? '贴上公告栏' : '提交审核'}}</button>
+    <text class="pub-notice" wx:if="{{!isAdmin}}">提交后将由管理员审核，审核通过后展示在广场</text>
+  </view>
+
+  <!-- 底部装饰 -->
+  <view class="pub-bottom">
+    <view class="pub-hill"></view>
+    <text class="pub-plant" style="left:15%;">🌿</text>
+    <text class="pub-plant" style="left:50%;">🌱</text>
+    <text class="pub-plant" style="left:80%;">🍀</text>
+  </view>
+
+  <t-toast id="t-toast" />
+</view>

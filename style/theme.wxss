@@ -1,0 +1,35 @@
+/* ============================================
+   校园信息展示墙 - 主题定制（手绘便利贴风格）
+   背景：明黄 #FFC93C
+   ============================================ */
+
+page {
+  --bg-yellow: #FFC93C;
+  --bg-light: #FFE066;
+  --bg-cream: #FFF8E1;
+  --note-pink: #FFB3C6;
+  --note-orange: #FFCC80;
+  --note-blue: #A0C4FF;
+  --note-green: #CAFFBF;
+  --note-purple: #E0BBE4;
+  --ink-black: #1A1A2E;
+  --ink-gray: #4A4A5A;
+  --ink-light: #888899;
+  --accent-orange: #E85D04;
+  --accent-teal: #1B998B;
+  --border-hand: 3rpx solid #1A1A2E;
+  --border-light: 2rpx solid #1A1A2E;
+}
+
+.t-tab-bar {
+  --td-tab-bar-color: #666666;
+  --td-tab-bar-active-color: #E85D04;
+}
+
+.t-button {
+  --td-button-font-weight: 700;
+  --td-button-medium-font-size: 32rpx;
+  --td-button-default-color: #fff;
+  --td-button-default-bg-color: #E85D04;
+  --td-button-default-border-color: #1A1A2E;
+}

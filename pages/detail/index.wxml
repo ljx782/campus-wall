@@ -1,0 +1,73 @@
+<view class="detail-page">
+  <view class="d-card" wx:if="{{post}}">
+    <!-- 头部 -->
+    <view class="d-header">
+      <image class="d-avatar" src="{{post.publisher.avatar || '/images/default-avatar.png'}}" mode="aspectFill" binderror="onAvatarError" />
+      <view class="d-meta">
+        <text class="d-name">{{post.publisher.nickname || '校园同学'}}</text>
+        <text class="d-time">{{timeAgo}}</text>
+      </view>
+      <view class="d-tag tag-{{postType}}">
+        <text>{{tagIcon}} {{tagName}}</text>
+      </view>
+    </view>
+
+    <!-- 内容 -->
+    <view class="d-body">
+      <block wx:if="{{postType === 'confession'}}">
+        <view class="d-confession">
+          <text class="dc-to" wx:if="{{post.toName}}">To: {{post.toName}}</text>
+          <text class="dc-text">{{post.content || post.desc || post.title}}</text>
+          <text class="dc-from" wx:if="{{post.fromName}}">From: {{post.fromName}}</text>
+        </view>
+      </block>
+
+      <block wx:if="{{postType === 'secondhand'}}">
+        <text class="d-title">{{post.title}}</text>
+        <text class="d-desc">{{post.desc}}</text>
+      </block>
+
+      <block wx:if="{{postType === 'study'}}">
+        <text class="d-title">{{post.title}}</text>
+        <text class="d-desc">{{post.content || post.desc}}</text>
+      </block>
+
+      <block wx:if="{{postType === 'lostfound'}}">
+        <view class="d-lost-badge {{post.lostStatus || 'lost'}}">
+          {{(post.lostStatus || 'lost') === 'lost' ? '📢 寻物启事' : '🙋 失物招领'}}
+        </view>
+        <text class="d-title">{{post.title}}</text>
+        <view class="d-info">
+          <view class="di-row" wx:if="{{post.itemName}}"><text class="di-k">物品</text><text class="di-v">{{post.itemName}}</text></view>
+          <view class="di-row" wx:if="{{post.location}}"><text class="di-k">地点</text><text class="di-v">{{post.location}}</text></view>
+          <view class="di-row" wx:if="{{post.lostTime}}"><text class="di-k">时间</text><text class="di-v">{{post.lostTime}}</text></view>
+        </view>
+        <text class="d-desc" wx:if="{{post.content || post.desc}}">{{post.content || post.desc}}</text>
+      </block>
+
+      <!-- 图片 -->
+      <view class="d-imgs" wx:if="{{post.images && post.images.length > 0}}">
+        <image wx:for="{{post.images}}" wx:for-item="img" wx:for-index="imgIndex" wx:key="*this" class="d-img {{post.images.length === 1 ? 'd-img-big' : ''}}" src="{{img}}" mode="aspectFill" bind:tap="previewImage" data-url="{{img}}" binderror="onImageError" data-img-index="{{imgIndex}}" />
+      </view>
+    </view>
+
+    <!-- 底部 -->
+    <view class="d-footer">
+      <view class="d-stat">
+        <text>👁 {{post.viewCount || 0}} 浏览</text>
+        <text bind:tap="toggleLike">{{isLiked ? '❤️' : '🤍'}} {{post.likeCount || 0}} 点赞</text>
+      </view>
+      <view class="d-contact" wx:if="{{contactInfo}}" bind:tap="copyContact">
+        <text class="dc-label">📞 联系方式</text>
+        <text class="dc-val">{{contactInfo}}</text>
+        <text class="dc-hint">点击复制</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!post && !loading}}" class="d-empty">
+    <text class="de-big">🍃</text>
+    <text>内容不存在</text>
+  </view>
+  <view wx:if="{{loading}}" class="d-empty"><text>加载中...</text></view>
+</view>

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "搜索",
+  "navigationBarBackgroundColor": "#FFC93C",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#FFC93C",
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast"
+  }
+}

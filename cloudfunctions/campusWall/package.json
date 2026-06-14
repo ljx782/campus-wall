@@ -1,0 +1,9 @@
+{
+  "name": "campusWall",
+  "version": "1.0.0",
+  "description": "校园墙信息处理云函数",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

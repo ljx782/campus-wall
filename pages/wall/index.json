@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "校园广场",
+  "navigationBarBackgroundColor": "#FFC93C",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#FFC93C",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 100,
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast"
+  }
+}

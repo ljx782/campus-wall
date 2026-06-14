@@ -1,0 +1,29 @@
+<view class="favorites-page">
+  <view class="page-header">
+    <text class="page-title">我的收藏</text>
+  </view>
+
+  <view class="fav-list">
+    <block wx:for="{{favorites}}" wx:key="_id">
+      <view class="fav-item" data-id="{{item._id}}" bindtap="goDetail">
+        <image class="fav-img" src="{{item.coverImage || '/images/demo1.png'}}" mode="aspectFill" binderror="onImageError" data-index="{{index}}" />
+        <view class="fav-info">
+          <text class="fav-title ellipsis-2">{{item.title}}</text>
+          <view class="fav-bottom">
+          </view>
+          <view class="fav-meta">
+            <text class="fav-publisher">{{item.publisher ? item.publisher.nickname : '未知'}}</text>
+          </view>
+        </view>
+        <view class="fav-remove" data-id="{{item._id}}" catchtap="removeFav">
+          <text>✕</text>
+        </view>
+      </view>
+    </block>
+
+    <view wx:if="{{favorites.length === 0 && !loading}}" class="empty-state">
+      <text class="empty-icon">⭐</text>
+      <text class="empty-text">还没有收藏任何商品</text>
+    </view>
+  </view>
+</view>

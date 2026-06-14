@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "搜索结果",
+  "usingComponents": {
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-empty": "tdesign-miniprogram/empty/empty"
+  }
+}
