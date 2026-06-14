@@ -102,7 +102,7 @@ miniprogram-1/
 ## 页面预览
 
 <p align="center">
- 
+ <img src="08b64d9d9f391b79bc4145b661869192.jpg">
 </p>
 
 > 更多页面截图正在整理中。
