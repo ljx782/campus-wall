@@ -1,50 +1,187 @@
-<br />
-<div align="center">
-    <img src="https://qcloudimg.tencent-cloud.cn/raw/f97dc74fbf9af5d7b2b3d8bc0a4e91d4.png" alt="Logo" width="400">
+# 师闲物
 
-  <h1 align="center">云开发电商模板</h1>
+<p align="center">
+  <b>校园二手交易平台</b><br>
+  <sub>基于微信小程序 · 云开发 CloudBase · TDesign 组件库</sub>
+</p>
 
-  <p align="center">
-  一键创建零售商城
-    <br />
-  </p>
-</div>
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-WeChat%20MiniProgram-07C160?logo=wechat&logoColor=white" alt="platform">
+  <img src="https://img.shields.io/badge/backend-CloudBase-0ABF53?logo=tencentcloud&logoColor=white" alt="backend">
+  <img src="https://img.shields.io/badge/UI-TDesign-0052CC" alt="UI">
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license">
+</p>
 
-## 说明
+---
 
-本项目为云开发电商模板的小程序，提供首页、购物车、订单、个人中心、商品详情等页面。
+## 项目简介
 
-本项目默认使用体验数据运行，同时也能够使用真实数据。配置好云开发后端后，即可一键切换至真实数据。
+师闲物是一个面向高校校园的二手商品交易小程序。学生可以自由发布闲置物品、浏览商品信息、收藏感兴趣的物品，并通过内置的云开发后端实现完整的交易闭环。系统支持管理员审核机制，确保内容质量。
 
-注：体验数据通过本地 Mock 数据实现。
+## 功能概览
 
-本项目的后端可前往<https://tcb.cloud.tencent.com/cloud-template/detail?appName=electronic-business&from=wxide_tcb_shop>安装。
+| 模块 | 描述 |
+|------|------|
+| 🏠 **广场** | 瀑布流展示最新上架商品，支持分类筛选与下拉刷新 |
+| ✏️ **发布** | 多图上传至云存储，填写标题、价格、成色、分类、联系方式 |
+| 🔍 **搜索** | 关键词模糊搜索商品标题，结果按发布时间排序 |
+| 📋 **详情** | 大图轮播、图文描述、卖家联系方式一键复制 |
+| ❤️ **收藏** | 收藏/取消收藏，个人中心查看收藏列表 |
+| 👤 **用户系统** | 微信授权登录，普通用户 / 管理员角色分流 |
+| 🛠️ **管理后台** | 查看全部商品（含待审核），上架/下架/删除操作 |
 
-## 社区
+## 技术架构
 
-欢迎添加企微群沟通交流：
+```
+┌──────────────────────────────────────────┐
+│               微信小程序前端                │
+│    TDesign Miniprogram · dayjs            │
+├──────────────────────────────────────────┤
+│              CloudBase 云开发               │
+│  ┌──────────┬──────────┬──────────────┐  │
+│  │ 云函数    │ 云数据库  │   云存储      │  │
+│  │ Node.js  │ MongoDB  │   图片托管    │  │
+│  └──────────┴──────────┴──────────────┘  │
+└──────────────────────────────────────────┘
+```
 
-<div>
-    <img src="https://qcloudimg.tencent-cloud.cn/raw/bbb904f6fd6da01aa677e8a31e37651d.jpg" style="width:30%;">
-</div>
+### 云函数
 
-## 安装依赖
+| 函数 | 触发方 | 用途 |
+|------|--------|------|
+| `getUserRole` | 小程序端 | 获取用户角色，区分管理员与普通用户 |
+| `publishProduct` | 小程序端 | 商品增删改，图片上传 |
+| `getProducts` | 小程序端 | 商品列表查询，支持多条件筛选与分页 |
+| `getProductDetail` | 小程序端 | 获取单一商品详情 |
+| `toggleFavorite` | 小程序端 | 收藏/取消收藏 |
+| `campusWall` | 小程序端 | 校园信息墙发布、列表、审核 |
 
-1. 安装 npm 依赖
+### 数据库集合
 
-```shell
+| 集合 | 核心字段 |
+|------|---------|
+| `users` | `_openid` · `nickName` · `avatarUrl` · `role` |
+| `products` | `title` · `price` · `images` · `coverImage` · `status` · `category` |
+| `favorites` | `_openid` · `productId` |
+| `campus_posts` | `title` · `type` · `images` · `status` · `likeCount` |
+
+## 项目结构
+
+```
+miniprogram-1/
+├── pages/
+│   ├── wall/                    # 广场首页（瀑布流）
+│   ├── publish/                 # 商品发布 / 编辑
+│   ├── search/                  # 搜索页
+│   ├── detail/                  # 商品详情
+│   ├── login/                   # 授权登录
+│   ├── goods/
+│   │   ├── list/                # 商品列表
+│   │   ├── details/             # 商品详情
+│   │   ├── search/              # 搜索入口
+│   │   └── result/              # 搜索结果
+│   ├── usercenter/
+│   │   ├── index/               # 个人中心
+│   │   ├── favorites/           # 我的收藏
+│   │   ├── person-info/         # 个人信息
+│   │   └── name-edit/           # 昵称编辑
+│   └── admin/
+│       └── home/                # 管理后台
+├── cloudfunctions/              # 6 个云函数
+├── custom-tab-bar/              # 自定义底部导航栏
+├── common/                      # 公共工具（版本更新管理等）
+├── style/                       # 全局样式与图标字体
+├── images/                      # 静态图片资源
+├── app.js                       # 应用入口，云开发初始化
+├── app.json                     # 全局配置，路由注册
+├── app.wxss                     # 全局样式
+├── project.config.json          # 微信开发者工具项目配置
+└── package.json                 # npm 依赖声明
+```
+
+## 页面预览
+
+<p align="center">
+  <img src="./images/demo1.png" alt="商品示例" width="200">
+</p>
+
+> 更多页面截图正在整理中。
+
+## 快速开始
+
+### 环境要求
+
+- [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) ≥ 1.06
+- Node.js ≥ 14（云函数运行时）
+- 微信小程序 AppID（[注册入口](https://mp.weixin.qq.com/)）
+
+### 1. 克隆仓库
+
+```bash
+git clone https://github.com/你的用户名/仓库名.git
+cd miniprogram-1
+```
+
+### 2. 安装依赖
+
+```bash
 npm install
 ```
 
- 如果安装失败，请检查是否有足够权限执行命令，或尝试用更高权限安装依赖：
+### 3. 配置环境变量
 
- ```shell
- sudo npm install
- ```
+打开 `app.js`，将 `your-env-id` 替换为你的云开发环境 ID：
 
-2. 构建 npm
-点击微信开发者工具菜单栏中的「工具」->「构建 npm」
+```js
+wx.cloud.init({
+  env: 'your-env-id',   // ← 替换为实际环境 ID
+  traceUser: true
+});
+```
 
-## 运行小程序
+打开 `project.config.json`，将 `your-appid` 替换为你的小程序 AppID。
 
-在微信开发者工具中导入本项目即可运行，若想配合后端运行完整应用，请前往<https://tcb.cloud.tencent.com/cloud-template/detail?appName=electronic-business&from=wxide_tcb_shop>安装。
+### 4. 构建 npm
+
+微信开发者工具中点击 **工具 → 构建 npm**，等待构建完成。
+
+### 5. 部署云函数
+
+右键点击 `cloudfunctions/` 下的每个云函数文件夹 → **上传并部署：云端安装依赖**。
+
+### 6. 初始化数据库
+
+在云开发控制台 → 数据库中新建集合：
+
+```
+users
+products
+favorites
+campus_posts
+```
+
+权限建议设置为「仅创建者可读写」。
+
+### 7. 创建管理员账号
+
+在 `users` 集合中手动添加记录：
+
+```json
+{
+  "_openid": "你的微信 OpenID",
+  "nickName": "管理员",
+  "avatarUrl": "",
+  "role": "admin",
+  "createTime": { "$date": "2026-06-14T00:00:00Z" }
+}
+```
+
+> 首次登录后可在云开发控制台查看自动创建的 `users` 记录，将其 `role` 改为 `"admin"` 即可。
+
+## 说明
+
+本项目基于 [TDesign 云开发电商模板](https://tcb.cloud.tencent.com/cloud-template/detail?appName=electronic-business) 改造，原模板由腾讯云开发团队与 TDesign 团队联合提供，许可证 MIT。
+
+## License
+
+[MIT](LICENSE)
