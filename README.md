@@ -18,6 +18,13 @@
 
 师闲趣是一个面向高校校园的二手商品交易小程序。学生可以自由发布闲置物品、浏览商品信息、收藏感兴趣的物品，并通过内置的云开发后端实现完整的交易闭环。系统支持管理员审核机制，确保内容质量。
 
+## 页面预览
+
+<p align="center">
+ <img src="08b64d9d9f391b79bc4145b661869192.jpg" width="260">
+ <img src="85cc53b7788c39b1267fab5df971b3f3.jpg" width="260">
+</p>
+
 ## 功能概览
 
 | 模块 | 描述 |
@@ -98,16 +105,6 @@ miniprogram-1/
 ├── project.config.json          # 微信开发者工具项目配置
 └── package.json                 # npm 依赖声明
 ```
-
-## 页面预览
-
-<p align="center">
- <img src="08b64d9d9f391b79bc4145b661869192.jpg" width="260">
- <img src="85cc53b7788c39b1267fab5df971b3f3.jpg" width="260">
-</p>
-
-> 更多页面截图正在整理中。
-
 ## 快速开始
 
 ### 环境要求
